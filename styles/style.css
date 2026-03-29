@@ -107,3 +107,99 @@ nav ul {
     margin: 0 auto;
     width: 100%;
 }
+
+/* BURGER BUTTON */
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  margin-bottom: var(--space-4);
+
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.04);
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 999px;
+}
+
+/* OVERLAY */
+
+.overlay {
+  display: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .app {
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "footer";
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+
+    width: min(280px, 85vw);
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .content {
+    grid-area: content;
+    min-height: auto;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}
