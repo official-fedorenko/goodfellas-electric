@@ -1,0 +1,82 @@
+.sidebar-bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* ===== NAV LINKS (GLASS + MAC LINE) ===== */
+
+.nav-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+  display: block;
+
+  padding: 10px 12px;
+
+  color: #cfcfcf;
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: 8px;
+
+  position: relative;
+  overflow: hidden;
+
+  /* glass */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+
+  transition: all 0.2s ease;
+}
+
+/* нижняя линия */
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+
+  width: 80%;
+  height: 2px;
+
+  background: #ffffff;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+/* hover */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+
+  transform: translateX(4px);
+}
+
+/* линия появляется */
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* active */
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* линия всегда видна */
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}

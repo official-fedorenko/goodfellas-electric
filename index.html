@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h1 class="logo">
+                <svg width="260" height="70" viewBox="0 0 260 70"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid meet">
+
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="100%" stop-color="#777777"/>
+                    </linearGradient>
+
+                    <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- центрируем всю композицию -->
+                <g transform="translate(40,0)">
+
+                    <!-- молния -->
+                    <path d="M25 10 L12 35 H22 L18 60 L38 30 H26 Z"
+                        fill="url(#grad)"
+                        filter="url(#glow)" />
+
+                    <!-- текст -->
+                    <text x="55" y="32"
+                        font-family="Segoe UI, sans-serif"
+                        font-size="22"
+                        font-weight="600"
+                        fill="url(#grad)"
+                        filter="url(#glow)">
+                    Goodfellas
+                    </text>
+
+                    <text x="55" y="52"
+                        font-family="Segoe UI, sans-serif"
+                        font-size="10"
+                        letter-spacing="2"
+                        fill="#aaaaaa">
+                    ELECTRIC
+                    </text>
+
+                </g>
+                </svg>
+            </h1>
+            <nav class="nav">
+            <div class="nav-group">
+                <a href="#" class="nav-link active" data-page="home">Главная</a>
+                <a href="#" class="nav-link" data-page="services">Услуги</a>
+                <a href="#" class="nav-link" data-page="prices">Цены</a>
+                <a href="#" class="nav-link" data-page="requests">Заявки</a>
+                <a href="#" class="nav-link" data-page="clients">Клиенты</a>
+            </div>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-link">Настройки</a>
+                <a href="#" class="nav-link">Выход</a>
+            </div>
+        </aside>
+        <main class="content">
+            <div class="content-inner" id="content">
+                <!-- тут контент -->
+                 коктент
+            </div>
+        </main>
+        <footer class="footer">футер</footer>
+    </div>
+</body>
+</html>
