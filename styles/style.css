@@ -1,6 +1,19 @@
 @import "meliowar-css-reset.css";
 @import "button.css";
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* =========================
    ROOT VARIABLES
    ========================= */
@@ -110,10 +123,12 @@ body {
    ========================= */
 
 .app {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   gap: var(--space-4);
   padding: var(--space-4);
+  overflow: hidden;
   grid-template-columns: minmax(var(--sidebar-min), var(--sidebar-max)) 1fr;
   grid-template-rows: 1fr auto;
   grid-template-areas:
@@ -126,6 +141,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 0;
   gap: var(--space-5);
   padding: var(--space-4);
   border-radius: var(--radius-lg);
@@ -137,14 +153,21 @@ body {
 
 .content {
   grid-area: content;
+  display: flex;
+  flex-direction: column;
   padding: var(--space-5);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-soft);
-  min-height: 80vh;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .content-inner {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -326,7 +349,9 @@ nav ul {
 @media (max-width: 768px) {
   .app {
     position: relative;
+    width: 100%;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
       "content"
       "footer";
@@ -373,7 +398,6 @@ nav ul {
   }
 
   .content {
-    min-height: auto;
     padding: var(--space-4);
   }
 
