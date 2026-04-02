@@ -1,31 +1,9 @@
-const content = document.getElementById("content");
-const navLinks = document.querySelectorAll(".nav-link");
+const contentContainer = document.getElementById("content");
+const navLinkElements = document.querySelectorAll(".nav-link");
 
-const sidebar = document.querySelector(".sidebar");
-const menuToggle = document.getElementById("menuToggle");
-const overlay = document.getElementById("overlay");
-
-function openMenu() {
-    sidebar.classList.add("is-open");
-    overlay.classList.add("is-visible");
-}
-
-function closeMenu() {
-    sidebar.classList.remove("is-open");
-    overlay.classList.remove("is-visible");
-}
-
-if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-        openMenu();
-    });
-}
-
-if (overlay) {
-    overlay.addEventListener("click", () => {
-        closeMenu();
-    });
-}
+const sidebarElement = document.getElementById("sidebar");
+const menuToggleButton = document.getElementById("menuToggle");
+const overlayElement = document.getElementById("overlay");
 
 const pages = {
   home: `
@@ -33,7 +11,7 @@ const pages = {
       <div class="page-header">
         <h1 class="page-title">Goodfellas Electric</h1>
         <p class="page-subtitle">
-          Надёжные электромонтажные работы для домов, квартир и бизнеса в Литве.
+          Надёжные электромонтажные работы для дома, квартиры и бизнеса.
         </p>
       </div>
 
@@ -62,16 +40,16 @@ const pages = {
         <div class="card col-8">
           <h2 class="card-title">О компании</h2>
           <p class="card-text">
-            Мы делаем понятный, аккуратный и безопасный электромонтаж.
-            Наша цель — не просто выполнить работу, а сделать систему,
-            которой удобно пользоваться и которую не придётся переделывать.
+            Мы делаем аккуратный, безопасный и понятный электромонтаж.
+            Наша цель — не просто выполнить работу, а собрать систему,
+            которой будет удобно пользоваться и которую не придётся переделывать.
           </p>
         </div>
 
         <div class="card col-4">
           <h2 class="card-title">Связаться</h2>
           <p class="card-text">
-            Телефон, WhatsApp, email и форма заявки будут здесь на следующем этапе.
+            Телефон, WhatsApp, email и форма заявки появятся здесь на следующем этапе.
           </p>
         </div>
       </div>
@@ -124,7 +102,7 @@ const pages = {
       <div class="page-header">
         <h1 class="page-title">Цены</h1>
         <p class="page-subtitle">
-          Примерная стоимость услуг. Потом подключим реальные данные.
+          Примерная стоимость услуг. Позже подключим реальные данные.
         </p>
       </div>
 
@@ -150,7 +128,7 @@ const pages = {
       </div>
 
       <div class="card">
-        <h2 class="card-title">Пусто</h2>
+        <h2 class="card-title">Раздел в разработке</h2>
         <p class="card-text">
           На этом этапе мы готовим интерфейс. Позже подключим backend и SQLite.
         </p>
@@ -202,32 +180,69 @@ const pages = {
           Здесь позже будет логика завершения сессии.
         </p>
       </div>
+
+      <div class="card">
+        <h2 class="card-title">Пока заглушка</h2>
+        <p class="card-text">
+          На текущем этапе это только интерфейс без авторизации.
+        </p>
+      </div>
     </div>
   `
 };
 
-function renderPage(pageName) {
-  content.innerHTML = pages[pageName] || "<p color='red'>Страница не найдена</p>";
+function renderPage(pageKey) {
+  const requestedPageTemplate = pages[pageKey];
+
+  if (!requestedPageTemplate) {
+    console.warn(`Страница "${pageKey}" не найдена. Показываем главную.`);
+    contentContainer.innerHTML = pages.home;
+    return;
+  }
+
+  contentContainer.innerHTML = requestedPageTemplate;
 }
 
-function setActiveLink(activeLink) {
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
+function setActiveLink(activeLinkElement) {
+  navLinkElements.forEach((linkElement) => {
+    linkElement.classList.remove("active");
   });
 
-  activeLink.classList.add("active");
+  activeLinkElement.classList.add("active");
 }
 
-navLinks.forEach((navItem) => {
-  navItem.addEventListener("click", (e) => {
-    e.preventDefault();
+function openMenu() {
+  if (!sidebarElement || !overlayElement) return;
 
-    const pageName = navItem.dataset.page;
-    renderPage(pageName);
+  sidebarElement.classList.add("is-open");
+  overlayElement.classList.add("is-visible");
+}
 
-    setActiveLink(navItem);
+function closeMenu() {
+  if (!sidebarElement || !overlayElement) return;
 
-    if (window.innerWidth < 768) {
+  sidebarElement.classList.remove("is-open");
+  overlayElement.classList.remove("is-visible");
+}
+
+if (menuToggleButton) {
+  menuToggleButton.addEventListener("click", openMenu);
+}
+
+if (overlayElement) {
+  overlayElement.addEventListener("click", closeMenu);
+}
+
+navLinkElements.forEach((linkElement) => {
+  linkElement.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const pageKey = linkElement.dataset.page;
+
+    setActiveLink(linkElement);
+    renderPage(pageKey);
+
+    if (window.innerWidth <= 768) {
       closeMenu();
     }
   });
