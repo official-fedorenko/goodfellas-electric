@@ -30,15 +30,11 @@
                     </filter>
                 </defs>
 
-                <!-- центрируем всю композицию -->
                 <g transform="translate(40,0)">
-
-                    <!-- молния -->
                     <path d="M25 10 L12 35 H22 L18 60 L38 30 H26 Z"
                         fill="url(#grad)"
                         filter="url(#glow)" />
 
-                    <!-- текст -->
                     <text x="55" y="32"
                         font-family="Segoe UI, sans-serif"
                         font-size="22"
@@ -55,40 +51,41 @@
                         fill="#aaaaaa">
                     ELECTRIC
                     </text>
-
                 </g>
                 </svg>
             </h1>
+
             <nav class="nav">
-            <div class="nav-group">
-                <a href="#" class="nav-link active" data-page="home">Главная</a>
-                <a href="#" class="nav-link" data-page="services">Услуги</a>
-                <a href="#" class="nav-link" data-page="prices">Цены</a>
-                <a href="#" class="nav-link" data-page="requests">Заявки</a>
-                <a href="#" class="nav-link" data-page="clients">Клиенты</a>
-            </div>
+                <div class="nav-group">
+                    <a href="#" class="nav-link active" data-page="home">Главная</a>
+                    <a href="#" class="nav-link" data-page="services">Услуги</a>
+                    <a href="#" class="nav-link" data-page="prices">Цены</a>
+                    <a href="#" class="nav-link" data-page="requests">Заявки</a>
+                    <a href="#" class="nav-link" data-page="clients">Клиенты</a>
+                </div>
             </nav>
+
             <div class="sidebar-bottom">
                 <a href="#" class="nav-link" data-page="settings">Настройки</a>
-                <a href="#" class="nav-link">Выход</a>
+                <a href="#" class="nav-link" data-page="logout">Выход</a>
             </div>
         </aside>
 
         <div class="overlay" id="overlay"></div>
 
         <main class="content">
+            <div class="content-inner" id="content">
+                <!-- тут контент -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <span class="footer-copy">&copy; 2024 Goodfellas Electric. Все права защищены.</span>
             <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-
-            <div class="content-inner" id="content">
-                <!-- тут контент -->
-            </div>
-        </main>
-        <footer class="footer">
-                &copy; 2024 Goodfellas Electric. Все права защищены.
         </footer>
     </div>
 </body>

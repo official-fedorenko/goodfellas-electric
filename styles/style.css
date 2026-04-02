@@ -194,9 +194,17 @@ body {
 
 .footer {
   grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
   padding: 0 var(--space-2);
   color: var(--text-muted);
   font-size: 14px;
+}
+
+.footer-copy {
+  min-width: 0;
 }
 
 /* =========================
@@ -224,8 +232,6 @@ nav ul {
   width: 44px;
   height: 44px;
   padding: 10px;
-  margin-bottom: var(--space-4);
-  margin-left: auto;
 
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
@@ -387,6 +393,7 @@ nav ul {
 
   .menu-toggle {
     display: inline-flex;
+    flex-shrink: 0;
   }
 
   .sidebar {
@@ -443,5 +450,14 @@ nav ul {
 
   .page-title {
     font-size: 24px;
+  }
+
+  .footer {
+    padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    line-height: 1.4;
   }
 }
