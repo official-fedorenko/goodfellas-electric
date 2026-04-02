@@ -7,6 +7,8 @@ body {
   height: 100%;
   min-height: 100%;
   overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 *,
@@ -177,6 +179,19 @@ body {
   margin: 0 auto;
 }
 
+.sidebar,
+.content-inner {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar,
+.content-inner::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 .footer {
   grid-area: footer;
   padding: 0 var(--space-2);
@@ -210,6 +225,7 @@ nav ul {
   height: 44px;
   padding: 10px;
   margin-bottom: var(--space-4);
+  margin-left: auto;
 
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
