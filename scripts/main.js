@@ -7,12 +7,12 @@ const overlay = document.getElementById("overlay");
 
 function openMenu() {
     sidebar.classList.add("is-open");
-    overlay.classList.add("is-active");
+    overlay.classList.add("is-visible");
 }
 
 function closeMenu() {
     sidebar.classList.remove("is-open");
-    overlay.classList.remove("is-active");
+    overlay.classList.remove("is-visible");
 }
 
 if (menuToggle) {

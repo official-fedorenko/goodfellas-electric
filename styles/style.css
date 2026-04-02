@@ -1,115 +1,181 @@
-
 @import "meliowar-css-reset.css";
 @import "button.css";
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
+
 :root {
+  /* ===== COLORS: BACKGROUND ===== */
+
+  /* Главный фон страницы */
   --bg-main: #0f0f0f;
+
+  /* Мягкий фон для блоков */
+  --bg-soft: rgba(255, 255, 255, 0.03);
+
+  /* Фон при наведении */
+  --bg-soft-hover: rgba(255, 255, 255, 0.06);
+
+  /* Фон активного элемента */
+  --bg-soft-active: rgba(255, 255, 255, 0.08);
+
+  /* Более плотный фон для панелей */
   --bg-panel: rgba(255, 255, 255, 0.04);
-  --bg-panel-hover: rgba(255, 255, 255, 0.08);
-  --border-color: rgba(255, 255, 255, 0.08);
+
+  /* Затемнение overlay */
+  --bg-overlay: rgba(0, 0, 0, 0.45);
+
+  /* ===== COLORS: TEXT ===== */
+
+  /* Основной текст */
   --text-main: #ffffff;
+
+  /* Обычный мягкий текст */
   --text-soft: #cfcfcf;
+
+  /* Второстепенный текст */
   --text-muted: #9a9a9a;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+
+  /* ===== BORDERS ===== */
+
+  /* Основная граница */
+  --border-color: rgba(255, 255, 255, 0.08);
+
+  /* Мягкая граница */
+  --border-soft: rgba(255, 255, 255, 0.06);
+
+  /* Более заметная граница */
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* ===== SPACING ===== */
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+
+  /* ===== RADIUS ===== */
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* ===== SHADOWS ===== */
+
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --space-4: 16px;
+  --shadow-strong: 0 14px 40px rgba(0, 0, 0, 0.35);
+
+  /* ===== BLUR ===== */
+
+  --blur-sm: blur(6px);
+  --blur-md: blur(10px);
+
+  /* ===== LAYOUT ===== */
+
+  --sidebar-min: 220px;
+  --sidebar-max: 280px;
+  --content-max-width: 1200px;
+
+  /* ===== ANIMATION ===== */
+
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.25s ease;
 }
 
-/* основные стили */
+/* =========================
+   BASE
+   ========================= */
 
 body {
-    margin: 0;
-    padding: 0;
-    background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03), transparent 40%),
-    #0f0f0f;
+  margin: 0;
+  padding: 0;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.03), transparent 40%),
+    var(--bg-main);
 }
 
 .logo svg {
-    margin: 0px auto;
+  margin: 0 auto;
 }
+
+/* =========================
+   APP LAYOUT
+   ========================= */
 
 .app {
-    min-height: 100vh;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: minmax(100px, 310px) 1fr;
-    grid-template-rows: 1fr 10vh;
-    grid-template-areas: 
-        "sidebar content"
-        "footer footer";
+  min-height: 100vh;
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  grid-template-columns: minmax(var(--sidebar-min), var(--sidebar-max)) 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "sidebar content"
+    "footer footer";
 }
-
-@media (max-width: 768px) {
-  .app {
-      grid-template-columns: 1fr;
-      grid-template-areas: 
-      "sidebar"
-      "content"
-      "footer"
-      ;
-  }
-
-  .nav-group {
-    display: flex;
-  }
-
-  .sidebar-bottom {
-    display: flex;
-  }
-}
-
-@media (max-width: 480px) {
-  .app {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "sidebar"
-      "content"
-      "footer"
-      ;
-  }
-  .nav-group {
-    display: grid;
-  }
-
-  .sidebar-bottom {
-    display: grid;
-  }
-}
-
 
 .sidebar {
-    grid-area: sidebar;
-    /* outline: 2px solid #3a3a3a; */
-    margin: 0px auto;
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  backdrop-filter: var(--blur-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .content {
-    grid-area: content;
-    /* outline: 2px solid #3a3a3a; */
-}
-
-.footer {
-    grid-area: footer;
-    /* outline: 2px solid #3a3a3a; */
-}
-
-/* навигация */
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  grid-area: content;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
+  min-height: 80vh;
 }
 
 .content-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
 }
 
-/* BURGER BUTTON */
+.footer {
+  grid-area: footer;
+  padding: 0 var(--space-2);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* =========================
+   BURGER BUTTON
+   ========================= */
 
 .menu-toggle {
   display: none;
@@ -120,7 +186,7 @@ nav ul {
 
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-panel);
 
   align-items: center;
   justify-content: center;
@@ -138,74 +204,17 @@ nav ul {
   border-radius: 999px;
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+   ========================= */
 
 .overlay {
   display: none;
 }
 
-/* MOBILE */
-
-@media (max-width: 768px) {
-  .app {
-    position: relative;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "content"
-      "footer";
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 30;
-
-    width: min(280px, 85vw);
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-  }
-
-  .sidebar.is-open {
-    transform: translateX(0);
-  }
-
-  .overlay {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-
-    background: rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-  }
-
-  .overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .content {
-    grid-area: content;
-    min-height: auto;
-  }
-
-  .footer {
-    grid-area: footer;
-  }
-}
-
-/* контент */
+/* =========================
+   PAGE CONTENT
+   ========================= */
 
 .page {
   display: flex;
@@ -232,6 +241,10 @@ nav ul {
   color: var(--text-muted);
 }
 
+/* =========================
+   CARDS
+   ========================= */
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -240,25 +253,21 @@ nav ul {
 
 .card {
   grid-column: span 12;
-
   padding: var(--space-4);
-
   border-radius: var(--radius-md);
-
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-soft);
   border: 1px solid var(--border-color);
-
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-soft-hover);
   transform: translateY(-2px);
 }
 
 .card--glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
+  background: var(--bg-panel);
+  backdrop-filter: var(--blur-sm);
 }
 
 .card-title {
@@ -270,9 +279,13 @@ nav ul {
 
 .card-text {
   font-size: 14px;
-  color: var(--text-soft);
   line-height: 1.5;
+  color: var(--text-soft);
 }
+
+/* =========================
+   GRID HELPERS
+   ========================= */
 
 .col-4 {
   grid-column: span 4;
@@ -290,6 +303,10 @@ nav ul {
   grid-column: span 12;
 }
 
+/* =========================
+   TABLET
+   ========================= */
+
 @media (max-width: 992px) {
   .col-4,
   .col-6,
@@ -302,9 +319,65 @@ nav ul {
   }
 }
 
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 768px) {
+  .app {
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "footer";
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+
+    width: min(280px, 85vw);
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+
+    transform: translateX(-100%);
+    transition: transform var(--transition-medium);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    background: var(--bg-overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-medium), visibility var(--transition-medium);
+  }
+
+  .overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .content {
+    min-height: auto;
+    padding: var(--space-4);
+  }
+
   .page-title {
     font-size: 24px;
   }
 }
-
