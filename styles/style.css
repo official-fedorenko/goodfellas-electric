@@ -144,6 +144,8 @@ body {
   min-height: 0;
   gap: var(--space-5);
   padding: var(--space-4);
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: var(--radius-lg);
   background: var(--bg-panel);
   border: 1px solid var(--border-color);
