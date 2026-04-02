@@ -18,13 +18,13 @@ function closeMenu() {
 if (menuToggle) {
     menuToggle.addEventListener("click", () => {
         openMenu();
-    })
+    });
 }
 
 if (overlay) {
     overlay.addEventListener("click", () => {
         closeMenu();
-    })
+    });
 }
 
 const pages = {
@@ -207,31 +207,30 @@ const pages = {
 };
 
 function renderPage(pageName) {
-    const page = pages[pageName] || pages.home;
-    content.innerHTML = page;
+  content.innerHTML = pages[pageName] || "<p color='red'>Страница не найдена</p>";
 }
 
 function setActiveLink(activeLink) {
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-    });
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+  });
 
-    activeLink.classList.add("active");
+  activeLink.classList.add("active");
 }
 
-navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-        event.preventDefault();
+navLinks.forEach((navItem) => {
+  navItem.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        const pageName = link.dataset.page;
+    const pageName = navItem.dataset.page;
+    renderPage(pageName);
 
-        setActiveLink(link);
-        renderPage(pageName);
+    setActiveLink(navItem);
 
-        if (window.innerWidth <= 768) {
-            closeMenu();
-        }
-    });
+    if (window.innerWidth < 768) {
+      closeMenu();
+    }
+  });
 });
 
 renderPage("home");
