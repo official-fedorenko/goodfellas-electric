@@ -133,7 +133,7 @@ body {
   gap: var(--space-4);
   padding: var(--space-4);
   overflow: hidden;
-  grid-template-columns: minmax(var(--sidebar-min), var(--sidebar-max)) 1fr;
+  grid-template-columns: minmax(var(--sidebar-min), var(--sidebar-max)) minmax(0, 1fr);
   grid-template-rows: 1fr auto;
   grid-template-areas:
     "sidebar content"
@@ -155,12 +155,18 @@ body {
   border: 1px solid var(--border-color);
   backdrop-filter: var(--blur-md);
   box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--transition-medium),
+    opacity var(--transition-medium),
+    visibility var(--transition-medium);
 }
 
 .content {
   grid-area: content;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  gap: var(--space-4);
   padding: var(--space-5);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.02);
@@ -205,6 +211,80 @@ body {
 
 .footer-copy {
   min-width: 0;
+}
+
+.sidebar-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: calc(var(--space-3) * -1);
+}
+
+.sidebar-collapse-toggle,
+.desktop-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.sidebar-collapse-toggle:hover,
+.desktop-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.sidebar-collapse-toggle {
+  width: 42px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.desktop-menu-toggle {
+  display: none;
+  align-self: flex-start;
+  gap: var(--space-2);
+  padding: 0 14px;
+}
+
+.desktop-menu-toggle__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.app.sidebar-collapsed {
+  grid-template-columns: 0 minmax(0, 1fr);
+}
+
+.app.sidebar-collapsed .sidebar {
+  width: 0;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-24px);
+  overflow: hidden;
+}
+
+.app.sidebar-collapsed .content-inner {
+  max-width: none;
+}
+
+.app.sidebar-collapsed .desktop-menu-toggle {
+  display: inline-flex;
 }
 
 /* =========================
@@ -677,6 +757,11 @@ nav ul {
     grid-template-areas:
       "content"
       "footer";
+  }
+
+  .sidebar-topbar,
+  .desktop-menu-toggle {
+    display: none;
   }
 
   .menu-toggle {

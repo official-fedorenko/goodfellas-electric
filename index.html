@@ -10,6 +10,17 @@
 <body>
     <div class="app">
         <aside class="sidebar" id="sidebar">
+            <div class="sidebar-topbar">
+                <button
+                    class="sidebar-collapse-toggle"
+                    id="sidebarCollapseToggle"
+                    type="button"
+                    aria-label="Свернуть боковое меню"
+                    aria-expanded="true"
+                >
+                    <span aria-hidden="true">←</span>
+                </button>
+            </div>
             <h1 class="logo">
             <svg width="320" height="90" viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Electro Modus logo">
             <defs>
@@ -103,6 +114,16 @@
         <div class="overlay" id="overlay"></div>
 
         <main class="content">
+            <button
+                class="desktop-menu-toggle"
+                id="desktopMenuToggle"
+                type="button"
+                aria-label="Показать боковое меню"
+                aria-expanded="false"
+            >
+                <span class="desktop-menu-toggle__icon" aria-hidden="true">☰</span>
+                <span>Меню</span>
+            </button>
             <div class="content-inner" id="content">
                 <!-- тут контент -->
             </div>
