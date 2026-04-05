@@ -1,18 +1,226 @@
-    <div class="page">
-      <div class="page-header">
-        <h1 class="page-title">Цены</h1>
-        <p class="page-subtitle">
-          Примерная стоимость услуг. Позже подключим реальные данные.
+<div class="page price-page">
+  <div class="page-header">
+    <h1 class="page-title">Цены</h1>
+    <p class="page-subtitle">
+      Не абстрактный "прайс из головы", а ориентиры по Вильнюсу на бытовые и коммерческие электромонтажные работы.
+      Финальная смета зависит от состояния объекта, длины трасс, материала стен и состава щита.
+    </p>
+  </div>
+
+  <div class="card-grid">
+    <section class="card card--glass col-12 price-hero">
+      <div class="price-hero__lead">
+        <p class="contact-eyebrow">Ориентиры по рынку Вильнюса</p>
+        <h2 class="card-title price-hero__title">Понятные диапазоны по частым задачам</h2>
+        <p class="card-text">
+          Мы собрали открытые прайсы и рыночные диапазоны по Вильнюсу и Литве, сравнили их и свели в удобную страницу.
+          Ниже не "самые дешёвые" обещания, а рабочие вилнюсские ориентиры, от которых удобно считать бюджет.
         </p>
       </div>
 
-      <div class="card-grid">
-        <div class="card col-12">
-          <h2 class="card-title">Пример прайса</h2>
-          <p class="card-text">Монтаж розетки - от 25 EUR</p>
-          <p class="card-text">Монтаж выключателя - от 20 EUR</p>
-          <p class="card-text">Сборка щита - от 150 EUR</p>
-          <p class="card-text">Диагностика - от 40 EUR</p>
+      <div class="price-stats">
+        <div class="price-stat">
+          <span class="price-stat__value">15-30 EUR/ч</span>
+          <span class="price-stat__label">мелкие электромонтажные работы по рынку</span>
+        </div>
+        <div class="price-stat">
+          <span class="price-stat__value">20-40 EUR/ч</span>
+          <span class="price-stat__label">срочный вызов электрика в Вильнюсе</span>
+        </div>
+        <div class="price-stat">
+          <span class="price-stat__value">22.5-25 EUR/ч</span>
+          <span class="price-stat__label">типовая ставка по Discontract для Вильнюса</span>
+        </div>
+        <div class="price-stat">
+          <span class="price-stat__value">от 50 EUR</span>
+          <span class="price-stat__label">выезд и диагностика по рыночным диапазонам</span>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="card col-8 price-board">
+      <div class="price-board__header">
+        <h2 class="card-title">Частые работы</h2>
+        <p class="card-text">
+          Диапазоны собраны по открытым прайсам Vilnius/LT и подходят для первичной оценки до выезда.
+        </p>
+      </div>
+
+      <div class="price-list">
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Монтаж или замена розетки</h3>
+            <p class="price-row__meta">1 точка, без сложного штробления и без дорогой фурнитуры</p>
+          </div>
+          <strong class="price-row__value">20-35 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Монтаж или замена выключателя</h3>
+            <p class="price-row__meta">стандартный механизм, 1 пост</p>
+          </div>
+          <strong class="price-row__value">18-30 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Установка светильника</h3>
+            <p class="price-row__meta">потолочный или настенный светильник без сложной сборки</p>
+          </div>
+          <strong class="price-row__value">25-60 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Диагностика и поиск неисправности</h3>
+            <p class="price-row__meta">когда выбивает автомат, пропадает группа или нужен осмотр сети</p>
+          </div>
+          <strong class="price-row__value">50-100 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Сборка или модернизация щита</h3>
+            <p class="price-row__meta">без стоимости автоматики, реле и корпуса</p>
+          </div>
+          <strong class="price-row__value">150-400 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Прокладка новой линии</h3>
+            <p class="price-row__meta">новые кабельные линии, трасса и подключение считаются после осмотра</p>
+          </div>
+          <strong class="price-row__value">от 25 EUR/точка</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-4 price-board">
+      <div class="price-board__header">
+        <h2 class="card-title">Как мы считаем</h2>
+      </div>
+
+      <div class="price-checklist">
+        <div class="price-check">
+          <span class="price-check__dot"></span>
+          <p class="card-text">Мелкие работы удобнее считать за точку или за выезд.</p>
+        </div>
+        <div class="price-check">
+          <span class="price-check__dot"></span>
+          <p class="card-text">Щиты, замена проводки и большие объёмы считаются после осмотра и схемы.</p>
+        </div>
+        <div class="price-check">
+          <span class="price-check__dot"></span>
+          <p class="card-text">Материалы почти всегда идут отдельно, чтобы смета была прозрачной.</p>
+        </div>
+        <div class="price-check">
+          <span class="price-check__dot"></span>
+          <p class="card-text">Если задача срочная или вечерняя, стоимость может быть выше базового диапазона.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-6 price-board">
+      <div class="price-board__header">
+        <h2 class="card-title">Бюджет по типу объекта</h2>
+        <p class="card-text">
+          Это уже не цена за одну точку, а ориентир на весь объект при типовом объёме работ.
+        </p>
+      </div>
+
+      <div class="price-list">
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Компактная квартира</h3>
+            <p class="price-row__meta">1-2 комнаты, базовая замена точек и света</p>
+          </div>
+          <strong class="price-row__value">350-700 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Средняя квартира</h3>
+            <p class="price-row__meta">частичная замена линий, новые точки, корректировка щита</p>
+          </div>
+          <strong class="price-row__value">700-1 200 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Большая квартира или таунхаус</h3>
+            <p class="price-row__meta">несколько зон, кухня, санузлы, балконы, освещение</p>
+          </div>
+          <strong class="price-row__value">1 200-2 000 EUR</strong>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <h3 class="price-row__title">Частный дом</h3>
+            <p class="price-row__meta">домовые линии, щит, наружные точки, подсобные помещения</p>
+          </div>
+          <strong class="price-row__value">от 2 000 EUR</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-6 price-board">
+      <div class="price-board__header">
+        <h2 class="card-title">Что сильнее всего влияет на цену</h2>
+      </div>
+
+      <div class="price-factor-grid">
+        <div class="price-factor">
+          <h3 class="price-factor__title">Старый фонд</h3>
+          <p class="card-text">Старые алюминиевые линии, слабые соединения и отсутствие нормального щита почти всегда повышают бюджет.</p>
+        </div>
+        <div class="price-factor">
+          <h3 class="price-factor__title">Материал стен</h3>
+          <p class="card-text">Бетон, монолит и аккуратное штробление обходятся дороже, чем открытая прокладка в техпомещении.</p>
+        </div>
+        <div class="price-factor">
+          <h3 class="price-factor__title">Количество групп</h3>
+          <p class="card-text">Чем больше отдельных линий на кухню, технику, бойлер, тёплый пол и освещение, тем сложнее щит и монтаж.</p>
+        </div>
+        <div class="price-factor">
+          <h3 class="price-factor__title">Срочность</h3>
+          <p class="card-text">Аварийный выезд, вечерние окна и работы "нужно сегодня" почти всегда считаются выше базовой ставки.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card--glass col-12 price-sources">
+      <div class="price-board__header">
+        <h2 class="card-title">На что опирались</h2>
+        <p class="card-text">
+          Использовали открытые предложения по Вильнюсу и литовские ценовые обзоры. Некоторые цифры выше - это прямые рыночные ставки,
+          а некоторые - аккуратный вывод на их основе для удобной оценки типовых задач.
+        </p>
+      </div>
+
+      <div class="price-source-list">
+        <a class="price-source" href="https://paslaugos.lt/smulkus-elektros-darbai" target="_blank" rel="noopener noreferrer">
+          <span class="price-source__name">Paslaugos.lt</span>
+          <span class="price-source__meta">мелкие электромонтажные работы: 15-30 EUR/ч, среднее 19 EUR/ч</span>
+        </a>
+        <a class="price-source" href="https://paslaugos.lt/elektrikai/skubus-elektriko-iskvietimas/vilniuje?page=2" target="_blank" rel="noopener noreferrer">
+          <span class="price-source__name">Paslaugos.lt Vilnius</span>
+          <span class="price-source__meta">срочный вызов электрика в Вильнюсе: 20-40 EUR/ч, среднее 27 EUR/ч</span>
+        </a>
+        <a class="price-source" href="https://www.discontract.com/professionals/electricians/city-vilnius" target="_blank" rel="noopener noreferrer">
+          <span class="price-source__name">Discontract</span>
+          <span class="price-source__meta">электрики в Вильнюсе: чаще всего 22.5-25 EUR/ч</span>
+        </a>
+        <a class="price-source" href="https://elektrosnamai.lt/elektros-darbu-kainos/" target="_blank" rel="noopener noreferrer">
+          <span class="price-source__name">Elektrosnamai</span>
+          <span class="price-source__meta">общелитовские диапазоны: розетки, выключатели, диагностика, щиты и проектирование</span>
+        </a>
+        <a class="price-source" href="https://statybuapzvalga.lt/" target="_blank" rel="noopener noreferrer">
+          <span class="price-source__name">Statybu Apzvalga</span>
+          <span class="price-source__meta">обзор рыночных цен 2025 по электромонтажным работам в Литве</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

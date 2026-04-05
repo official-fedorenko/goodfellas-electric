@@ -99,13 +99,16 @@ if (overlayElement) {
 }
 
 navLinkElements.forEach((linkElement) => {
-  linkElement.addEventListener("click", () => {
-    const page = linkElement.dataset.page;
+  linkElement.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const pageKey = linkElement.dataset.page;
     setActiveLink(linkElement);
-    if (!isDesktopViewport()) {
+    loadPage(pageKey);
+
+    if (window.innerWidth <= 768) {
       closeMenu();
     }
-    loadPage(page);
   });
 });
 
